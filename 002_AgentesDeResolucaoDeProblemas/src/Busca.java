@@ -1,49 +1,37 @@
 import java.util.Queue;
 import java.util.Vector;
+import java.util.LinkedList;
 
 public class Busca {
     private Queue<Estado> borda;
     private Vector<Estado> explorados;
 
-    public Boolean findBorda(Estado estado) {
-        for (Estado est : this.borda) {
-            if (est == estado) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public Boolean findExplorados(Estado estado) {
-        for (Estado est : this.borda) {
-            if (est == estado) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public Vector<Estado> buscaEmLargura(Problema problema) {
-        this.borda.add(problema.getEstadoInicial());
-        Vector<Estado> caminho = new Vector<>();
+    // RETORNA UM NÓ, O CAMINHO SÃO OS SEUS PAIS
+    public No buscaEmLargura(Problema problema) {
+        borda = new LinkedList<Estado>();
+        explorados = new Vector<Estado>();
+        this.borda.add(problema.estadoInicial);
 
         while (true) {
             if (this.borda.isEmpty()) {
-                return caminho;
+                return null;
             }
 
-            No no = new No(borda.poll(), null, 0);
-            this.explorados.add(no.getEstado());
+            No no = new No(this.borda.poll(), null, 0);
+            this.explorados.add(no.estado);
 
-            for (Estado est : problema.getEstados()) {
-                No filho = new No(est, no, 1 + no.getCustoCaminho());
-                if (this.findBorda(filho.getEstado()) || this.findExplorados(filho.getEstado())) {
-                    if (filho.getEstado() == problema.getObjetivo()) {
-                        return caminho;
+            for (Estado est : problema.transicoes.get(no.estado)) {
+                No filho = new No(est, no, no.custoCaminho + 1);
+
+                if (this.borda.contains(filho.estado) == false && this.explorados.contains(filho.estado) == false) {
+                    if (filho.estado == problema.objetivo) {
+                        return filho;
                     }
-                    this.borda.add(filho.getEstado());
+                    this.borda.add(filho.estado);
                 }
             }
         }
     }
+
+    // LINHAS QUE MUDAM 6, 13, 14
 }
