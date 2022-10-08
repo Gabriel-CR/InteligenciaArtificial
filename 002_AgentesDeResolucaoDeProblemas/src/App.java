@@ -1,22 +1,24 @@
-import java.util.Vector;
-
 public class App {
     public static void main(String[] args) throws Exception {
         Data dados = new Data();
         Transicao transicoes = new Transicao(dados.getListaAdjacencias());
-        Busca busca = new Busca();
 
         Problema problema = new Problema(
             dados.getEstados(), 
-            new Estado("Arad"), 
+            dados.getEstados()[2],  // Arad
             transicoes.getListaAdjacencias(), 
-            new Estado("Bucharest")
+            dados.getEstados()[13]  // Bucharest
         );
 
-        Vector<Estado> caminho = busca.buscaEmLargura(problema);
+        // System.out.println(problema);
 
-        for (Estado e : caminho) {
-            System.out.println(e.getNome());
+        Busca busca = new Busca();
+
+        No caminho = new No(busca.buscaEmLargura(problema));
+
+        while (caminho != null) {
+            System.out.println(caminho.estado.getNome());
+            caminho = caminho.pai;
         }
     }
 }

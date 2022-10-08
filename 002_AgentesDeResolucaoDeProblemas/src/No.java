@@ -8,4 +8,10 @@ public class No {
         this.pai = pai;
         this.custoCaminho = custoCaminho;
     }
+
+    public No(No no) {
+        this.estado = no.estado;
+        this.pai = no.pai;
+        this.custoCaminho = no.custoCaminho;
+    }
 }
