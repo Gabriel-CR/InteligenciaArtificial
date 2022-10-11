@@ -1,4 +1,3 @@
-from logging import root
 from Problema import Problema
 from No import No
 

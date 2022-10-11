@@ -14,9 +14,6 @@ if __name__ == "__main__":
     busca = Busca()
 
     no = busca.buscaEmLargura(problema)
-    # print(no.pai.pai)
-
-    # print(no)
 
     '''
         imprime o caminho
