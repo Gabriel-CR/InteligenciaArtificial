@@ -1,5 +1,3 @@
-from Estado import Estado
-
 class No:
     def __init__(self, estado=None, pai=None, custo=None):
         self.estado = estado
