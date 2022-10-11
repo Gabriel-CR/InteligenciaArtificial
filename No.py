@@ -1,7 +1,7 @@
 from Estado import Estado
 
 class No:
-    def __init__(self, estado : Estado, pai, custo : int):
+    def __init__(self, estado=None, pai=None, custo=None):
         self.estado = estado
         self.pai = pai
         self.custo = custo

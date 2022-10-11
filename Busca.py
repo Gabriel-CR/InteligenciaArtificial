@@ -13,23 +13,17 @@ class Busca:
             if len(self.borda) == 0:
                 return None
 
-    '''
-    def buscaCustoUniforme(self, problema : Problema):
-        self.borda.append(problema.estadoInicial)
-
-        while True:
-            if len(self.borda) == 0:
-                return None
-
-            no = No(self.borda.pop(0), None, 0)
-
-            if no.estado == problema.estadoFinal:
-                return no
-
+            a = self.borda.pop()
+            no = No(a, None, 0)
             self.explorados.append(no.estado)
 
-            for filho in problema.transicoes[no.estado]:
-                filho = No(filho[0], no, filho[1] + no.custoCaminho)
-                if filho.estado not in self.explorados and filho not in self.borda:
-                    self.borda.append(filho)
-    '''
+            for child in problema.transicoes[no.estado]:
+                filho = No(child[0], no, 0)
+
+                if filho.estado not in self.explorados or filho not in self.borda:
+                    print(filho)
+                    print()
+
+                    if filho.estado == problema.estadoFinal:
+                        return filho
+                    self.borda.append(filho.estado)
