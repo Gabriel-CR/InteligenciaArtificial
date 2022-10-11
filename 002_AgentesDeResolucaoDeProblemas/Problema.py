@@ -1,5 +1,3 @@
-from Estado import Estado
-
 class Problema:
     def __init__(self, estados, estadoInicial, transicoes, estadoFinal, custoCaminho):
         self.estados = estados           

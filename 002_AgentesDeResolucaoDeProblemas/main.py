@@ -14,9 +14,14 @@ if __name__ == "__main__":
     busca = Busca()
 
     no = busca.buscaEmLargura(problema)
+    # print(no.pai.pai)
 
-    # imprime o caminho
-    # caminho = Bucharest -> Pitesti -> Craiova -> Drobeta -> Mehadia -> Lugoj -> Timisoara -> Arad
+    # print(no)
+
+    '''
+        imprime o caminho
+        caminho = Bucharest -> Pitesti -> Craiova -> Drobeta -> Mehadia -> Lugoj -> Timisoara -> Arad
+    '''
     while no is not None:
-        print(no.estado.nome)
+        print(no.estado)
         no = no.pai
