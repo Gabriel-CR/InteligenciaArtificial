@@ -22,8 +22,6 @@ class Busca:
                 filho = No(child[0], no, 0)
 
                 if filho.estado not in self.explorados and filho not in self.borda:
-                    # print(filho, '\n')
-
                     if filho.estado == problema.estadoFinal:
                         return filho
                     self.borda.append(filho.estado)
