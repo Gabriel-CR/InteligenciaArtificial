@@ -27,4 +27,4 @@ class Busca:
                     if filho.estado == problema.estadoFinal:
                         return filho
                     self.borda.append(filho.estado)
-                    root = filho
+                    root = filho.pai
