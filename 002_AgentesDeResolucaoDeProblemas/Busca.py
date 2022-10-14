@@ -1,5 +1,6 @@
 from Problema import Problema
 from No import No
+import heapq
 
 class Busca:
     def __init__(self):

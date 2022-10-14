@@ -4,6 +4,7 @@ class Data:
     def __init__(self):
         self.dicionario = {}
         self.estados = []
+        self.heuristica = {}
 
         self.estados.append(est("Oradea"))          # 0
         self.estados.append(est("Zerind"))          # 1
@@ -24,7 +25,7 @@ class Data:
         self.estados.append(est("Vaslui"))          # 16
         self.estados.append(est("Iasi"))            # 17
         self.estados.append(est("Neamt"))           # 18
-        self.estados.append(est("Giurgiu"))          # 19
+        self.estados.append(est("Giurgiu"))         # 19
 
         self.dicionario = {
             self.estados[0] : [
@@ -89,16 +90,36 @@ class Data:
             ]
         }
 
+        self.heuristica = {
+            self.estados[0] : 380,
+            self.estados[1] : 374, 
+            self.estados[2] : 366,
+            self.estados[3] : 253,
+            self.estados[4] : 329,
+            self.estados[5] : 244,
+            self.estados[6] : 241,
+            self.estados[7] : 242,
+            self.estados[8] : 176,
+            self.estados[9] : 193,
+            self.estados[10] : 160,
+            self.estados[11] : 100,
+            self.estados[12] : 0,
+            self.estados[13] : 80,
+            self.estados[14] : 151,
+            self.estados[15] : 161,
+            self.estados[16] : 199,
+            self.estados[17] : 226,
+            self.estados[18] : 234,
+            self.estados[19] : 77
+        }        
+
     def getEstados(self,):
         return self.estados
 
     def __str__(self):
         os = ""
 
-        for dd in self.dicionario:
-            os += dd.nome + " ->"
-            for d in self.dicionario[dd]:
-                os += f"{d[0].nome} = {d[1]}km, "
-            os += "\n"
+        for a in self.heuristica:
+            os += f"{a.nome} -> {self.heuristica[a]} \n"
 
-        return os
+        return os 
