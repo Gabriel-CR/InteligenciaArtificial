@@ -13,12 +13,15 @@ if __name__ == "__main__":
     problema = Problema(dados.getEstados(), dados.estados[2], transicao.listaDeAdjacencia, dados.estados[12], 0)
     busca = Busca()
 
-    no = busca.buscaEmLargura(problema)
+    no = busca.buscaCustoUniforme(problema)
 
     '''
         imprime o caminho
         caminho = Bucharest -> Pitesti -> Craiova -> Drobeta -> Mehadia -> Lugoj -> Timisoara -> Arad
     '''
-    while no is not None:
-        print(no.estado)
-        no = no.pai
+    if not no:
+        print("sem caminho")
+    else:
+        while no is not None:
+            print(no.estado)
+            no = no.pai
