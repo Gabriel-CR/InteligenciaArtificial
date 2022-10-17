@@ -1,3 +1,4 @@
+from time import sleep
 from Problema import Problema
 from No import No
 import heapq
@@ -20,7 +21,7 @@ class Busca:
             if len(self.borda) == 0:
                 return None
 
-            a = self.borda.pop()
+            a = self.borda.pop(0)
             indice = self.findPesoEstado(problema.transicoes[root.estado], a)
 
             no = No(a, root, root.custo + (0 if (indice == None) else problema.transicoes[root.estado][indice][1]))

@@ -12,10 +12,10 @@ if __name__ == "__main__":
     # indo de Arad para Bucharest
     # dar erro indo de Oradea para Vaslui
     # fica em loop em Bucharest e Giurgiu
-    problema = Problema(dados.estados, dados.estados[2], transicao.listaDeAdjacencia, dados.estados[12], 0)
+    problema = Problema(dados.estados, dados.estados[0], transicao.listaDeAdjacencia, dados.estados[16], 0)
     busca = Busca()
 
-    no = busca.buscaEmLargura(problema)
+    no = busca.buscaEmLargura(problema) 
 
     '''
         imprime o caminho
