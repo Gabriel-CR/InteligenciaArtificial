@@ -13,7 +13,7 @@ if __name__ == "__main__":
     problema = Problema(dados.getEstados(), dados.estados[2], transicao.listaDeAdjacencia, dados.estados[12], 0)
     busca = Busca()
 
-    no = busca.buscaCustoUniforme(problema)
+    no = busca.buscaEmLargura(problema)
 
     '''
         imprime o caminho
@@ -22,6 +22,6 @@ if __name__ == "__main__":
     if not no:
         print("sem caminho")
     else:
-        while no is not None:
+        while no.pai is not None:
             print(no.estado)
             no = no.pai
