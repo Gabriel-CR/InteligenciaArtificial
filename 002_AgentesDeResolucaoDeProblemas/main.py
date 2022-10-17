@@ -11,7 +11,8 @@ if __name__ == "__main__":
 
     # indo de Arad para Bucharest
     # dar erro indo de Oradea para Vaslui
-    problema = Problema(dados.getEstados(), dados.estados[0], transicao.listaDeAdjacencia, dados.estados[12], 0)
+    # fica em loop em Bucharest e Giurgiu
+    problema = Problema(dados.estados, dados.estados[2], transicao.listaDeAdjacencia, dados.estados[12], 0)
     busca = Busca()
 
     no = busca.buscaEmLargura(problema)

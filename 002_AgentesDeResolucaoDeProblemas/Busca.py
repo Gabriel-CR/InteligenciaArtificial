@@ -28,8 +28,9 @@ class Busca:
 
             for child in problema.transicoes[no.estado]:
                 filho = No(child[0], no, no.custo + child[1])
+                # print(filho.estado)
 
-                if filho.estado not in self.explorados and filho not in self.borda:
+                if (filho.estado not in self.explorados) and (filho not in self.borda):
                     if filho.estado == problema.estadoFinal:
                         return filho
                     self.borda.append(filho.estado)
