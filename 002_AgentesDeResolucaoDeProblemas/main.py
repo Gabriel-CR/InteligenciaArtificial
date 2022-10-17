@@ -10,7 +10,8 @@ if __name__ == "__main__":
     transicao = Transicao(dados.dicionario)
 
     # indo de Arad para Bucharest
-    problema = Problema(dados.getEstados(), dados.estados[2], transicao.listaDeAdjacencia, dados.estados[12], 0)
+    # dar erro indo de Oradea para Vaslui
+    problema = Problema(dados.getEstados(), dados.estados[0], transicao.listaDeAdjacencia, dados.estados[12], 0)
     busca = Busca()
 
     no = busca.buscaEmLargura(problema)
@@ -23,5 +24,5 @@ if __name__ == "__main__":
         print("sem caminho")
     else:
         while no.pai is not None:
-            print(no.estado)
+            print(f"Estado: {no.estado}, Peso: {no.custo}")
             no = no.pai

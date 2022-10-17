@@ -111,10 +111,7 @@ class Data:
             self.estados[17] : 226,
             self.estados[18] : 234,
             self.estados[19] : 77
-        }        
-
-    def getEstados(self,):
-        return self.estados
+        }
 
     def __str__(self):
         os = ""
