@@ -9,18 +9,15 @@ if __name__ == "__main__":
     dados = Data()
     transicao = Transicao(dados.dicionario)
 
-    # indo de Arad para Bucharest
-    # dar erro indo de Oradea para Vaslui
+    # indo de Arad para Bucharest : 2 -> 12
+    # dar erro indo de Oradea para Vaslui : 0 -> 16
     # fica em loop em Bucharest e Giurgiu
-    problema = Problema(dados.estados, dados.estados[0], transicao.listaDeAdjacencia, dados.estados[16], 0)
+    problema = Problema(dados.estados, dados.estados[2], transicao.listaDeAdjacencia, dados.estados[12], 0)
     busca = Busca()
 
-    no = busca.buscaEmLargura(problema) 
+    no = busca.buscaEmLargura(problema)
 
-    '''
-        imprime o caminho
-        caminho = Bucharest -> Pitesti -> Craiova -> Drobeta -> Mehadia -> Lugoj -> Timisoara -> Arad
-    '''
+    # imprime o caminho
     if not no:
         print("sem caminho")
     else:
